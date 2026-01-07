@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" default-locale="de-CH">
  <info>
-    <title>JM Onlinekommentar Schweiz (Deutsch)</title>
-    <id>https://juris-m.github.io/styles/jm-onlinekommentar-schweiz-(deutsch)</id>
-    <author>
-     <name>Noam Schank</name>
-     <email>schank.noam@gmail.com</email>
-    </author>
-    <author>
-     <name>Stephan Schlegel</name>
-     <email>stephan.schlegel@unibas.ch</email>
-     <note>Original author of the style "Juristische Zitierweise Schweizer (Ryser Büschi et al.) (Deutsch - Schweiz)" (https://www.zotero.org/styles/juristische-zitierweise-schweizer) which served as a template to this style.</note>
-    </author>  
-    <category citation-format="note"/>
-    <category field="law"/>
-    <summary>This style is based on the citation guidelines of Onlinekommentar (German edition).</summary>
-    <updated>2026-01-06</updated>
-    <rights license="https://creativecommons.org/licenses/by-sa/4.0/">This work is licensed under a Attribution-ShareAlike 4.0 International License.</rights>
-    <!-- For this style, the author (Noam Schank) has written a manual (in German) which can be requested by e-mail. -->
+  <title>JM Onlinekommentar Schweiz (Deutsch)</title>
+  <id>https://juris-m.github.io/styles/jm-onlinekommentar-schweiz-(deutsch)</id>
+  <author>
+   <name>Noam Schank</name>
+   <email>schank.noam@gmail.com</email>
+  </author>
+  <author>
+   <name>Stephan Schlegel</name>
+   <email>stephan.schlegel@unibas.ch</email>
+   <note>Original author of the style "Juristische Zitierweise Schweizer (Ryser Büschi et al.) (Deutsch - Schweiz)" (https://www.zotero.org/styles/juristische-zitierweise-schweizer) which served as a template to this style.</note>
+  </author>  
+  <category citation-format="note"/>
+  <category field="law"/>
+  <summary>This style is based on the citation guidelines of Onlinekommentar (German edition).</summary>
+  <updated>2026-01-07</updated>
+  <rights license="https://creativecommons.org/licenses/by-sa/4.0/">This work is licensed under a Attribution-ShareAlike 4.0 International License.</rights>
+  <!-- For this style, the author (Noam Schank) has written a manual (in German) which can be requested by e-mail. -->
  </info>
  <locale xml:lang="de">
   <style-options jurisdiction-preference="ch deAT LegCit"/>
