@@ -15,9 +15,9 @@
   <category citation-format="note"/>
   <category field="law"/>
   <summary>This style is based on the citation guidelines of Onlinekommentar (German edition).</summary>
-  <updated>2026-01-07</updated>
+  <updated>2026-01-27</updated>
   <rights license="https://creativecommons.org/licenses/by-sa/4.0/">This work is licensed under a Attribution-ShareAlike 4.0 International License.</rights>
-  <!-- For this style, the author (Noam Schank) has written a manual (in German) which can be requested by e-mail. -->
+    <!-- For this style, the author (Noam Schank) has written a manual (in German) which can be requested by e-mail. -->
  </info>
  <locale xml:lang="de">
   <style-options jurisdiction-preference="ch deAT LegCit"/>
@@ -31,6 +31,13 @@
    <term name="paragraph">§</term>
    <term name="section">E.</term>
   </terms>
+  <court-class name="echr" country="coe.int" courts="egmr"/>
+  <court-class name="ecj" country="eu.int" courts="eugh"/>
+  <court-class name="icj" country="un.int" courts="igh"/>
+  <court-class name="b0" country="ch" courts="bger"/>
+  <court-class name="b1" country="ch" courts="bvger bstger bpatger"/>
+  <court-class name="k1" country="ch" courts="KGer OGer KassGer AppGer TC VGer"/>
+  <court-class name="k2" country="ch" courts="BezGer TA ZMG TMC"/>
  </locale>
  <macro name="author">
   <names variable="author">
@@ -144,6 +151,38 @@
    </else>
   </choose>
  </macro>
+ <macro name="sort-courts">
+  <choose>
+   <if country="coe.int">
+    <text value="01"/>
+   </if>
+   <else-if country="eu.int">
+    <text value="02"/>
+   </else-if>
+   <else-if country="un.int">
+    <text value="03"/>
+   </else-if>
+   <else-if country="ch">
+    <choose>
+     <if court-class="b0" match="any">
+      <text value="10"/>
+     </if>
+     <else-if court-class="b1">
+      <text value="20"/>
+     </else-if>
+     <else-if court-class="k1" match="any">
+      <text value="30"/>
+     </else-if>
+     <else-if court-class="k2" match="any">
+      <text value="40"/>
+     </else-if>
+     <else>
+      <text value="50"/>
+     </else>
+    </choose>
+   </else-if>
+  </choose> 
+ </macro>
  <macro name="collection-title">
   <if variable="collection-title">
    <group delimiter=" ">
@@ -162,11 +201,7 @@
      <if type="article-journal">
       <group delimiter=", ">
        <text macro="author-note"/>
-       <choose>
-        <if match="any" variable="title-short">
-         <text variable="title-short"/>
-        </if>
-       </choose>
+       <text variable="title-short"/>
        <text macro="locator"/>
       </group>
      </if>
@@ -180,7 +215,7 @@
       <else-if type="chapter">
        <group delimiter=", ">
         <text macro="author-note"/>
-        <text variable="title-short" prefix="in: "/>
+        <text variable="title-short"/>
         <text macro="locator"/>
        </group>
       </else-if>
@@ -278,7 +313,7 @@
           </choose>
           <choose>
            <if match="any" variable="title-short">
-            <text variable="title" form="short" font-style="italic" prefix="&#8211; "/>
+            <text variable="title-short" font-style="italic" prefix="&#8211; "/>
            </if>
           </choose>
          <text macro="locator"/>
@@ -302,6 +337,13 @@
        <text macro="locator"/>
       </group>
      </else-if>
+     <else-if type="report">
+      <group delimiter=", ">
+       <text macro="author-note"/>
+       <text variable="title-short"/>
+       <text macro="locator"/>
+      </group>
+     </else-if>
      <else>
       <group delimiter=", ">
        <text macro="author-note"/>
@@ -316,6 +358,7 @@
  <bibliography subsequent-author-substitute="ders." line-spacing="1" hanging-indent="true">
   <sort>
    <key macro="sort-by-category"/>
+   <key macro="sort-courts"/>
    <key macro="author"/>
    <key variable="issued"/>
   </sort>
@@ -369,7 +412,7 @@
       <if match="any" variable="title-short">
        <group delimiter=", " prefix=" (zit.: " suffix=")">
         <text macro="autor-editor-note"/>
-        <text variable="title" form="short"/>
+        <text variable="title-short"/>
        </group>
       </if>
      </choose>
@@ -435,7 +478,7 @@
       <if match="any" variable="title-short">
        <group delimiter=", " prefix=" (zit.: " suffix=")">
         <text macro="autor-editor-note"/>
-        <text variable="title" form="short" prefix="in: "/>
+        <text variable="title-short"/>
        </group>
       </if>
      </choose>
@@ -566,7 +609,17 @@
       <text variable="authority"/>
       <text variable="page"/>
      </group>
-    </else-if> 
+    </else-if>
+    <else-if type="report">
+     <group delimiter=", ">
+      <text macro="author"/>
+      <text variable="title"/>
+      <date variable="issued" suffix="">
+        <date-part name="year" form="long"/>
+      </date>
+      <text variable="page"/>
+     </group>
+    </else-if>
     <else>
      <group delimiter=", ">
       <text macro="author"/>
